@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
 import '../../model/pokemon_basic_data.dart';
 import '../../model/pokemon_stats_data.dart';
 import '../services/pokemon_stats_services.dart';

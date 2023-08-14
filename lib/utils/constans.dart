@@ -70,13 +70,12 @@ const Color switchActiveDarkThemeColor = Colors.blueGrey;
 const Color circularProgressIndicatorColor =
 Color.fromRGBO(93, 95, 122, 1);
 
-// Custom horizontal scrollbar
 const Color customHorizontalScrollbarLightThemeColor = Colors.black;
 const Color customHorizontalScrollbarDarkThemeColor = Colors.white;
 const Color appBarLightThemeColor = Colors.white10;
 const Color appBarDarkThemeColor = Colors.black;
 
-// Dims
+
 const double homeScreenSliverAppBarHeight = 220.0;
 
 const double screenTopPadding = 24;
