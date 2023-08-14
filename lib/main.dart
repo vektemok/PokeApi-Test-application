@@ -14,7 +14,7 @@ import 'domain/controllers/pokemon_basic_controller.dart';
 import 'domain/controllers/pokemon_favorite_Controller.dart';
 import 'domain/controllers/pokemon_more_info_controller.dart';
 import 'domain/controllers/pokemon_stat_controller.dart';
-import 'domain/controllers/search_controller.dart';
+
 import 'domain/controllers/theme_controller.dart';
 
 void main() {
@@ -40,7 +40,7 @@ class Application extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => PokemonMoreInfoController()),
         ChangeNotifierProvider(create: (_) => PokemonStatsController()),
         ChangeNotifierProvider(create: (_) => PokemonFavoritesController()),
-        ChangeNotifierProvider(create: (_) => SearchPokemonsController()),
+
       ],
       child: Consumer<ThemeController>(builder: (context, provider, ch) {
         return MaterialApp(

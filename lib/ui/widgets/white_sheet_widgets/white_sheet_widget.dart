@@ -4,12 +4,11 @@ import 'package:provider/provider.dart';
 
 import 'package:untitled63/utils/constans.dart' as constants;
 
-
 import '../../../domain/controllers/pokemon_about_controller.dart';
 import '../../../domain/controllers/pokemon_more_info_controller.dart';
 import '../../../domain/controllers/pokemon_stat_controller.dart';
 import '../../../model/pokemon_basic_data.dart';
-import '../white_sheet_widgets/moves_widget.dart';
+
 import 'stats_row_widget.dart';
 
 import 'about_widget.dart';
