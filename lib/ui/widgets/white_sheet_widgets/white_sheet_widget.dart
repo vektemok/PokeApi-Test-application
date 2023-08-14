@@ -77,7 +77,7 @@ class _WhiteSheetWidgetState extends State<WhiteSheetWidget> {
   @override
   Widget build(BuildContext context) {
     final pokemon = widget.pokemon;
-    // get screen height and width
+
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
     final isDark = widget.isDark;
@@ -98,14 +98,12 @@ class _WhiteSheetWidgetState extends State<WhiteSheetWidget> {
           SizedBox(
               height: screenHeight * .06,
               child: Center(child: customScrollerBuilder(isDark))),
-          // display circular indicator when loading
           if (loading)
             const Expanded(
               child: Center(
                   child: CircularProgressIndicator(
                       color: constants.circularProgressIndicatorColor)),
             ),
-          // display the pageView when finish loading
           if (!loading)
             Expanded(
               child: PageView(
@@ -171,7 +169,7 @@ class _WhiteSheetWidgetState extends State<WhiteSheetWidget> {
   void updateTabIndex(int tabIndex) {
     setState(() {
       _currentTabIndex = tabIndex;
-      // add animation
+
       _tabController.animateToPage(tabIndex,
           duration: const Duration(milliseconds: 300), curve: Curves.linear);
     });
