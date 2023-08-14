@@ -11,7 +11,7 @@ class PokemonStatsController with ChangeNotifier {
 
   Future<void> getPokemonStats(PokemonBasicData pokemon) async {
     final response = await pokemonStatsService.fetchPokemonStats(pokemon);
-    // add pokemon detail model to pokemon basic info model
+
     final PokemonStatsData pokemonStatsData = PokemonStatsData(
       hp: response['hp'],
       attack: response['attack'],

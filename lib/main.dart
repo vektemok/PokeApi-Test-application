@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:untitled63/ui/screens/home_screen.dart';
 import 'package:untitled63/ui/screens/main.dart';
 import 'package:untitled63/ui/screens/pocemon_detail_screen.dart';
-import 'package:untitled63/ui/screens/pokemon_detail_screen.dart';
-
 import 'package:untitled63/ui/screens/settings_screen.dart';
-
 import 'domain/controllers/pokemon_about_controller.dart';
 import 'domain/controllers/pokemon_basic_controller.dart';
 import 'domain/controllers/pokemon_favorite_Controller.dart';

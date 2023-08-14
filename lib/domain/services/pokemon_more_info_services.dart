@@ -5,13 +5,12 @@ import 'package:http/http.dart' as http;
 
 import '../../model/pokemon_basic_data.dart';
 class PokemonMoreInfoService {
-  // Fetch pokemon (more info) data
+
   Future<Map<String, dynamic>> fetchPokemonMoreIndoData(
       PokemonBasicData pokemon) async {
 
     Map<String, dynamic> moreInfo = {};
 
-    // convert the pokemon name to lower case so we can use it in the url
     String pokemonNameLowerCase = pokemon.name.toLowerCase();
 
     try {
@@ -23,21 +22,20 @@ class PokemonMoreInfoService {
         int height = pokemonData['height'];
         int weight = pokemonData['weight'];
 
-        // extract types names
+
         List<String> typesNames = [];
         List types = pokemonData['types'];
         for (var typeName in types) {
           typesNames.add(typeName['type']['name']);
         }
 
-        // extract moves names
+
         List<String> movesNames = [];
         List moves = pokemonData['moves'];
         for (var moveName in moves) {
           movesNames.add(moveName['move']['name']);
         }
 
-        // extract abilities names
         List<String> abilitiesNames = [];
         List abilities = pokemonData['abilities'];
         for (var abilityName in abilities) {

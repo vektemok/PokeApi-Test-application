@@ -8,12 +8,12 @@ import '../../model/pokemon_basic_data.dart';
 
 
 class PokemonAboutDataService {
-  // Fetch pokemon (about tab) data
+
   Future<Map<String, dynamic>> getPokemonAboutData(
       PokemonBasicData pokemon) async {
     Map<String, dynamic> pokemonAboutData = {};
 
-    // convert the pokemon name to lower case so we can use it in the url
+
     String pokemonNameLowerCase = pokemon.name.toLowerCase();
     Uri url =
         Uri.http('pokeapi.co', 'api/v2/pokemon-species/$pokemonNameLowerCase');
@@ -29,13 +29,12 @@ class PokemonAboutDataService {
           habitat = habitatData['name'];
         }
         String growthRate = pokemonInfo['growth_rate']['name'];
-        // get only the first text
         String flavorText =
             pokemonInfo['flavor_text_entries'][0]['flavor_text'];
-        // replace text '\n' with space
+
         String flavorTextEdited = flavorText.replaceAll(RegExp('\n'), '');
 
-        // extract egg groups names from the map
+
         List<String> eggGroupNames = [];
         List eggGroups = pokemonInfo['egg_groups'];
         for (var eggGroup in eggGroups) {

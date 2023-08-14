@@ -20,7 +20,7 @@ class PokemonMoreInfoController with ChangeNotifier {
       types: response['types'],
       moves: response['moves'],
     );
-    // add pokemon detail model to pokemon basic info model
+
     pokemon.pokemonMoreInfoData = pokemonDetailedInfo;
 
   }

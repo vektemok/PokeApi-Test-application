@@ -6,7 +6,7 @@ import '../../model/pokemon_basic_data.dart';
 import '../services/pokemon_about_data_services.dart';
 
 class PokemonAboutDataController with ChangeNotifier {
-  // create an instance of the basicDataService class
+
   final pokemonAboutDataService = PokemonAboutDataService();
 
   Future<void> getPokemonAboutData(PokemonBasicData pokemon) async {

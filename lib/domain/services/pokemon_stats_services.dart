@@ -9,7 +9,7 @@ import '../../model/pokemon_basic_data.dart';
 class PokemonStatsService {
   Future<Map<String, dynamic>> fetchPokemonStats(PokemonBasicData pokemon) async {
     Map<String, dynamic> pokemonStats = {};
-    // convert the pokemon name to lower case so we can use it in the url
+
     String pokemonNameLowerCase = pokemon.name.toLowerCase();
 
     try {

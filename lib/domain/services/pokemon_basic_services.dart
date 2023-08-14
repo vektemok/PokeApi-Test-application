@@ -3,14 +3,11 @@ import 'package:http/http.dart' as http;
 
 import '../../model/pokemon_basic_data.dart';
 
-
 class PokemonBasicDataService {
-
   Future<List<PokemonBasicData>> getAllPokemons(int offset) async {
     List<PokemonBasicData> pokemons = [];
     try {
       if (offset >= 1000) {
-        // the end of the list
         return pokemons;
       }
 
@@ -18,18 +15,18 @@ class PokemonBasicDataService {
           {'limit': '20', 'offset': offset.toString()});
       final response = await http.get(basicUrl);
       List<dynamic> fetchedData = [];
-      // check if response status code is success
+
       if (response.statusCode == 200) {
-        // decode response body
         fetchedData = json.decode(response.body)['results'];
 
         for (var pokemon in fetchedData) {
-          // make pokemon name starts with uppercase
           final pokemonName = pokemon['name'].substring(0, 1).toUpperCase() +
               pokemon['name'].substring(1);
 
-          pokemons
-              .add(PokemonBasicData(name: pokemonName, url: pokemon['url'],  ));
+          pokemons.add(PokemonBasicData(
+            name: pokemonName,
+            url: pokemon['url'],
+          ));
         }
       }
       return pokemons;
@@ -50,7 +47,8 @@ class PokemonBasicDataService {
         String pokemonIdPadLeft = '';
         int id = pokemonData['id'];
         pokemonIdPadLeft = (id).toString().padLeft(3, '0');
-        String imageUrl = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/$pokemonIdPadLeft.png';
+        String imageUrl =
+            'https://assets.pokemon.com/assets/cms2/img/pokedex/full/$pokemonIdPadLeft.png';
         final pokemonUrl = 'https://pokeapi.co/api/v2/$nameLowerCase';
         pokemon = {
           'name': name,
@@ -64,6 +62,4 @@ class PokemonBasicDataService {
       rethrow;
     }
   }
-
-
 }
