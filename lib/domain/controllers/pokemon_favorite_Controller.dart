@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
-import '../models/pokemon_basic_data.dart';
+
+import '../../model/pokemon_basic_data.dart';
 import '../services/pokemon_basic_services.dart';
 
 class PokemonFavoritesController with ChangeNotifier {

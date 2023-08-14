@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
+
 import '../../domain/controllers/pokemon_basic_controller.dart';
 import '../../domain/controllers/theme_controller.dart';
 import '../widgets/bottom_loading_bar.dart';
+import '../widgets/custom_detail_list.dart';
 import '../widgets/custom_sliver_grid_view.dart';
 import 'package:untitled63/utils/constans.dart' as constants;
 
-class HomeScreen extends StatefulWidget {
+class PokemonDetailListScreen extends StatefulWidget {
   static const String routeName = "HomeScreen";
 
-  const HomeScreen({Key? key}) : super(key: key);
+  const PokemonDetailListScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<PokemonDetailListScreen> createState() =>
+      _PokemonDetailListScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _PokemonDetailListScreenState extends State<PokemonDetailListScreen> {
   final _scrollController = ScrollController();
   int offset = 0;
   bool atBottom = false;
@@ -36,7 +40,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData themeData = Provider.of<ThemeController>(context).themeData;
+    final ThemeData themeData = Provider
+        .of<ThemeController>(context)
+        .themeData;
     bool isDark = themeData == ThemeData.dark();
     return Scaffold(
         backgroundColor: isDark
@@ -44,14 +50,14 @@ class _HomeScreenState extends State<HomeScreen> {
             : constants.scaffoldLightThemeColor,
         body: Padding(
             padding:
-                const EdgeInsets.symmetric(horizontal: constants.mediumPadding),
+            const EdgeInsets.symmetric(horizontal: constants.mediumPadding),
             child: CustomScrollView(
               controller: _scrollController,
               physics: const BouncingScrollPhysics(),
               slivers: [
                 const SliverToBoxAdapter(
                     child: SizedBox(height: constants.mediumPadding)),
-                const CustomSliverGridView(),
+                const CustomDetailListView(),
                 if (atBottom && loadData) const BottomLoadingBarWidget(),
                 if (atBottom && !loadData)
                   const SliverToBoxAdapter(

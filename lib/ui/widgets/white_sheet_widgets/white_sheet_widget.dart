@@ -4,10 +4,11 @@ import 'package:provider/provider.dart';
 
 import 'package:untitled63/utils/constans.dart' as constants;
 
-import '../../../controllers/pokemon_about_controller.dart';
-import '../../../controllers/pokemon_more_info_controller.dart';
-import '../../../controllers/pokemon_stat_controller.dart';
-import '../../../models/pokemon_basic_data.dart';
+
+import '../../../domain/controllers/pokemon_about_controller.dart';
+import '../../../domain/controllers/pokemon_more_info_controller.dart';
+import '../../../domain/controllers/pokemon_stat_controller.dart';
+import '../../../model/pokemon_basic_data.dart';
 import '../white_sheet_widgets/moves_widget.dart';
 import 'stats_row_widget.dart';
 
@@ -31,7 +32,11 @@ class _WhiteSheetWidgetState extends State<WhiteSheetWidget> {
   int _currentTabIndex = 0;
   bool loading = false;
 
-  final List<String> _tabs = ['About', 'Stats', 'Moves', 'More Info'];
+  final List<String> _tabs = [
+    'About pokemon',
+    'Statistic',
+    'Evolution and bla bla'
+  ];
 
   Future<void> _fetchData() async {
     if (mounted) {
@@ -44,11 +49,11 @@ class _WhiteSheetWidgetState extends State<WhiteSheetWidget> {
     await Provider.of<PokemonAboutDataController>(context, listen: false)
         .getPokemonAboutData(pokemon);
     if (!mounted) return;
-    // fetch pokemon more info data
+
     await Provider.of<PokemonMoreInfoController>(context, listen: false)
         .getPokemonMoreInfoData(pokemon);
     if (!mounted) return;
-    // fetch pokemon stats data
+
     await Provider.of<PokemonStatsController>(context, listen: false)
         .getPokemonStats(pokemon);
     if (mounted) {
@@ -85,9 +90,6 @@ class _WhiteSheetWidgetState extends State<WhiteSheetWidget> {
         color: isDark
             ? constants.whiteSheetDarkThemeColor
             : constants.whiteSheetLightThemeColor,
-        borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(constants.whiteSheetRadius),
-            topRight: Radius.circular(constants.whiteSheetRadius)),
       ),
       child: Column(
         children: [
@@ -120,7 +122,6 @@ class _WhiteSheetWidgetState extends State<WhiteSheetWidget> {
                 children: [
                   AboutWidget(pokemon: pokemon),
                   StatsWidget(pokemon: pokemon),
-                  MovesWidget(pokemon: pokemon),
                   MoreInfoWidget(pokemon: pokemon),
                 ],
               ),

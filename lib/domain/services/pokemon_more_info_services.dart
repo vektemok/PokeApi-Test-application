@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 
-import '../models/pokemon_basic_data.dart';
 
+import '../../model/pokemon_basic_data.dart';
 class PokemonMoreInfoService {
   // Fetch pokemon (more info) data
   Future<Map<String, dynamic>> fetchPokemonMoreIndoData(

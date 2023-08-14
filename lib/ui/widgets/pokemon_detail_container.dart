@@ -1,31 +1,32 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:untitled63/utils/constans.dart' as constants;
 
+import 'package:untitled63/ui/widgets/white_sheet_widgets/stats_row_widget.dart';
+import 'package:untitled63/utils/constans.dart' as constants;
 
 import '../../model/pokemon_basic_data.dart';
 import '../../utils/colors_generator.dart';
 import '../screens/pocemon_detail_screen.dart';
 
-class PokemonCardItem extends StatefulWidget {
+class PokemonDetailContainer extends StatefulWidget {
   final PokemonBasicData pokemon;
   final bool isDark;
   final String imageUrl;
   final String id;
 
-  const PokemonCardItem(
-      {Key? key,
-      required this.isDark,
-      required this.pokemon,
-      required this.imageUrl,
-      required this.id})
-      : super(key: key);
+  const PokemonDetailContainer({
+    Key? key,
+    required this.isDark,
+    required this.pokemon,
+    required this.imageUrl,
+    required this.id,
+  }) : super(key: key);
 
   @override
-  State<PokemonCardItem> createState() => _PokemonCardItemState();
+  State<PokemonDetailContainer> createState() => _PokemonDetailContainerState();
 }
 
-class _PokemonCardItemState extends State<PokemonCardItem> {
+class _PokemonDetailContainerState extends State<PokemonDetailContainer> {
   Color cardColor = Colors.transparent;
   late Map<String, String> getPokemonIdAndImage;
   bool colorReady = false;
@@ -42,16 +43,14 @@ class _PokemonCardItemState extends State<PokemonCardItem> {
     final pokemonBasicInfo = widget.pokemon;
 
     // update ids and imageUrls
-    // return GestureDetector(
-    //   onTap: () {
-    //     Navigator.of(context).pushNamed(PokemonDetailScreen.routeName,
-    //         arguments: {
-    //           'pokemon': pokemonBasicInfo,
-    //           'color': cardColor,
-    //           'imageUrl': widget.imageUrl
-    //         });
-    //   },
-    return Builder(builder: (context) {
+    return GestureDetector(onTap: () {
+      Navigator.of(context).pushNamed(PokemonDetailScreen.routeName,
+          arguments: {
+            'pokemon': pokemonBasicInfo,
+            'color': cardColor,
+            'imageUrl': widget.imageUrl
+          });
+    }, child: Builder(builder: (context) {
       if (colorReady) {
         return Container(
           padding: const EdgeInsets.all(constants.mediumPadding),
@@ -74,16 +73,11 @@ class _PokemonCardItemState extends State<PokemonCardItem> {
                   errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
-              Text(
-                pokemonBasicInfo.name,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                    color: isDark
-                        ? constants.pokemonNameDarkThemeColor.withOpacity(0.9)
-                        : constants.pokemonNameLightThemeColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: Theme.of(context).textTheme.headline6?.fontSize),
-              ),
+              const Text(
+                'Click for more information',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontWeight: FontWeight.bold),
+              )
             ],
           ),
         );
@@ -92,7 +86,7 @@ class _PokemonCardItemState extends State<PokemonCardItem> {
             child: CircularProgressIndicator(
                 color: constants.circularProgressIndicatorColor));
       }
-    });
+    }));
   }
 
   Future<void> generateContainerColor() async {

@@ -73,7 +73,7 @@ Color.fromRGBO(93, 95, 122, 1);
 // Custom horizontal scrollbar
 const Color customHorizontalScrollbarLightThemeColor = Colors.black;
 const Color customHorizontalScrollbarDarkThemeColor = Colors.white;
-const Color appBarLightThemeColor = Color.fromRGBO(54, 48, 83, 1);
+const Color appBarLightThemeColor = Colors.white10;
 const Color appBarDarkThemeColor = Colors.black;
 
 // Dims

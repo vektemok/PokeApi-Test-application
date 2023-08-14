@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../models/pokemon_about_data.dart';
-import '../models/pokemon_basic_data.dart';
+
+import '../../model/pokemon_about_data.dart';
+import '../../model/pokemon_basic_data.dart';
 import '../services/pokemon_about_data_services.dart';
 
 class PokemonAboutDataController with ChangeNotifier {

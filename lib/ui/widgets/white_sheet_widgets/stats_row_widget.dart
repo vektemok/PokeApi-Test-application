@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:untitled63/ui/widgets/white_sheet_widgets/stat_bar_widget.dart';
 import 'package:untitled63/utils/constans.dart' as constants;
 
-import '../../../models/pokemon_basic_data.dart';
+import '../../../model/pokemon_basic_data.dart';
+
+
 class StatsWidget extends StatelessWidget {
   final PokemonBasicData pokemon;
 

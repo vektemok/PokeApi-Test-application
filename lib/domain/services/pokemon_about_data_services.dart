@@ -3,7 +3,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-import '../models/pokemon_basic_data.dart';
+
+import '../../model/pokemon_basic_data.dart';
+
 
 class PokemonAboutDataService {
   // Fetch pokemon (about tab) data

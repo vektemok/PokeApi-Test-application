@@ -4,8 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
 
-import '../models/pokemon_basic_data.dart';
 
+import '../../model/pokemon_basic_data.dart';
 class PokemonStatsService {
   Future<Map<String, dynamic>> fetchPokemonStats(PokemonBasicData pokemon) async {
     Map<String, dynamic> pokemonStats = {};

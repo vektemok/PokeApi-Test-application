@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:untitled63/utils/constans.dart' as constants;
-import '../../controllers/theme_controller.dart';
+
+import '../../domain/controllers/theme_controller.dart';
+
 
 class SettingsScreen extends StatelessWidget {
   static const String routeName = 'SettingsScreen';
@@ -14,6 +16,7 @@ class SettingsScreen extends StatelessWidget {
     bool isDark = themeData == ThemeData.dark();
     return Scaffold(
         appBar: AppBar(
+          centerTitle: false,
           backgroundColor: isDark
               ? constants.appBarDarkThemeColor
               : constants.appBarLightThemeColor,
@@ -38,17 +41,7 @@ class SettingsScreen extends StatelessWidget {
                       }),
                 ],
               ),
-              const SizedBox(height: constants.smallPadding),
-              const Divider(height: 5),
-              const SizedBox(height: constants.smallPadding),
-              const Text('App Version: 1.0.0'),
-              const SizedBox(height: constants.mediumPadding),
-              const Divider(height: 5),
-              const SizedBox(height: constants.smallPadding),
-              const Text('Credits:'),
-              const SizedBox(height: constants.smallPadding),
-              const Text('Api from: pokeapi.com'),
-              const Text('Pokemon images from: pokemon.com'),
+
             ],
           ),
         ));

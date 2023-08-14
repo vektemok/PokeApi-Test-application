@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../models/pokemon_basic_data.dart';
+
+import '../../model/pokemon_basic_data.dart';
+
 
 class PokemonBasicDataService {
 
@@ -27,7 +29,7 @@ class PokemonBasicDataService {
               pokemon['name'].substring(1);
 
           pokemons
-              .add(PokemonBasicData(name: pokemonName, url: pokemon['url']));
+              .add(PokemonBasicData(name: pokemonName, url: pokemon['url'],  ));
         }
       }
       return pokemons;
@@ -36,7 +38,6 @@ class PokemonBasicDataService {
     }
   }
 
-  // get pokemon data by name
   Future<Map<String, dynamic>> getPokemonByName(String name) async {
     Map<String, dynamic> pokemon = {};
     final nameLowerCase = name.toLowerCase();
@@ -45,7 +46,7 @@ class PokemonBasicDataService {
       final response = await http.get(basicUrl);
       if (response.statusCode == 200) {
         final pokemonData = json.decode(response.body);
-        // convert id to 3 digits such as: 001, 002, 003, etc
+
         String pokemonIdPadLeft = '';
         int id = pokemonData['id'];
         pokemonIdPadLeft = (id).toString().padLeft(3, '0');

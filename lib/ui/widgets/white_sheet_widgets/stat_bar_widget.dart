@@ -77,24 +77,8 @@ class _StatRowWidgetState extends State<StatRowWidget> {
                   builder: (_, constraints) {
                     return Stack(
                       children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            color: constants.searchContainerLightThemeColor,
-                            borderRadius: BorderRadius.circular(200),
-                          ),
-                          height: 20,
-                        ),
 
-                        AnimatedContainer(
-                          duration: const Duration(milliseconds: 800),
-                          curve: Curves.linear,
-                          height: 20,
-                          width: loadStat? statPercentage * constraints.maxWidth: 0,
-                          decoration: BoxDecoration(
-                            color: statColor(statNumber),
-                            borderRadius: BorderRadius.circular(200),
-                          ),
-                        ),
+
                       ],
                     );
                   }

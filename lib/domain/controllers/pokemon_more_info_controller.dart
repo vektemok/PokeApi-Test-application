@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../models/pokemon_basic_data.dart';
-import '../models/pokemon_more_info_data.dart';
+
+import '../../model/pokemon_basic_data.dart';
+import '../../model/pokemon_more_info_data.dart';
 import '../services/pokemon_more_info_services.dart';
 
 class PokemonMoreInfoController with ChangeNotifier {
 
-  // create an instance of the pokemonMoreInfo class
+
   final pokemonAboutDataService = PokemonMoreInfoService();
 
   Future<void> getPokemonMoreInfoData(PokemonBasicData pokemon) async {
